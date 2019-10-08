@@ -4,7 +4,7 @@ var myCar;
 
 //bad cars
 var allMyBalls = [];
-var amountOfBalls = 20;
+var amountOfBalls = 7;
 
 //winnerLine
 var myWinnerLine;
@@ -29,12 +29,42 @@ function setup() {
 myCar = new Car(100, mouseY, 180,90);
 
 
+
 //random bad car
   for(var i=0; i<amountOfBalls; i++){
     //instance
-    var tempBall = new Ball(random()*(5*windowWidth) + windowWidth, random()*(8*windowHeight/11) + 100, 180, 90);
+    var tempBall = new Ball(random()*(13*windowWidth) + windowWidth, (windowHeight/2)-291, 180, 90, 2);
     allMyBalls.push(tempBall); //si azzerano ogni volta gli imput
   }
+
+  //random bad car
+    for(var i=0; i<amountOfBalls; i++){
+      //instance
+      var tempBall2 = new Ball(random()*(13*windowWidth) + windowWidth, (windowHeight/2)-168, 180, 90, 2.5);
+      allMyBalls.push(tempBall2); //si azzerano ogni volta gli imput
+    }
+
+    //random bad car
+      for(var i=0; i<amountOfBalls; i++){
+        //instance
+        var tempBall3 = new Ball(random()*(13*windowWidth) + windowWidth, (windowHeight/2)-45, 180, 90, 2);
+        allMyBalls.push(tempBall3); //si azzerano ogni volta gli imput
+      }
+
+      //random bad car
+        for(var i=0; i<amountOfBalls; i++){
+          //instance
+          var tempBall4 = new Ball(random()*(13*windowWidth) + windowWidth, (windowHeight/2)+48, 180, 90, 3);
+          allMyBalls.push(tempBall4); //si azzerano ogni volta gli imput
+        }
+
+        //random bad car
+          for(var i=0; i<amountOfBalls; i++){
+            //instance
+            var tempBall5 = new Ball(random()*(13*windowWidth) + windowWidth, (windowHeight/2)+201, 180, 90, 2);
+            allMyBalls.push(tempBall5); //si azzerano ogni volta gli imput
+          }
+
 
   // winnerline
 myWinnerLine = new WinnerLine(5.5*windowWidth, 0, 50,windowHeight);
@@ -42,19 +72,19 @@ myWinnerLine = new WinnerLine(5.5*windowWidth, 0, 50,windowHeight);
 //random trees
   for(var i=0; i<amountOfTrees; i++){
     //instance
-    var tempTree = new Tree(random()*(8*windowWidth) + 0, random()*25 + 0, 20,'darkGreen');
+    var tempTree = new Tree(random()*(8*windowWidth) + 0, random()*((windowHeight/2)-310) + 0, 20,'darkGreen');
     allMyTrees.push(tempTree);
   }
 
   for(var i=0; i<amountOfTrees; i++){
     //instance
-    var tempTree2 = new Tree(random()*(8*windowWidth) + 0, random()*25 + 0, 10,'pink');
+    var tempTree2 = new Tree(random()*(8*windowWidth) + 0, random()*((windowHeight/2)-310) + 0, 10,'pink');
     allMyTrees.push(tempTree2);
   }
 
   for(var i=0; i<amountOfTrees; i++){
     //instance
-    var tempTree3 = new Tree(random()*(8*windowWidth) + 0, windowHeight-25, 20,'darkGreen');
+    var tempTree3 = new Tree(random()*(8*windowWidth) + 0, windowHeight-30, 20,'darkGreen');
     allMyTrees.push(tempTree3);
   }
 
@@ -70,43 +100,71 @@ myWinnerLine = new WinnerLine(5.5*windowWidth, 0, 50,windowHeight);
 }
 
 function draw() {
-  background('gray');
+
+  //grass
+  background('green');
 
 //instruction
-fill('darkGray');
-textAlign(CENTER,CENTER);
-textSize(20);
-text('outmatch all the cars and win', width/2, 80 + 30);
+
 
   //streetline
     stroke('white');
     strokeWeight(5);
     line(0,windowHeight/2,windowWidth,windowHeight/2);
 
-    //winnerline
-        myWinnerLine.move();
-        myWinnerLine.display();
 
-  //grass
+
+  //street
+  push();
     noStroke();
-    fill('green');
-    rect(0,0,windowWidth,50);
-    rect(0,windowHeight-50,windowWidth,50);
+    fill('gray');
+    rectMode(CENTER)
+    rect(windowWidth/2,windowHeight/2,windowWidth,600);
+    pop();
 
-//my car
-    myCar.display();
-
-
+    fill('white');
+    noStroke();
+    textAlign(CENTER,CENTER);
+    textSize(20);
+    text('move the mouse, dodge all the cars and win', width/2, 80 + 30);
 
 
 //---------------------------------------------------
 //display e move bad car
+
 
     for (var i=0; i<allMyBalls.length; i++) { //va da 0 alla lunghezza delle mie balls
       var tempBall = allMyBalls[i];
       tempBall.move();
       tempBall.display();
     }
+
+    for (var i=0; i<allMyBalls.length; i++) { //va da 0 alla lunghezza delle mie balls
+      var tempBall2 = allMyBalls[i];
+      tempBall2.move();
+      tempBall2.display();
+    }
+
+    for (var i=0; i<allMyBalls.length; i++) { //va da 0 alla lunghezza delle mie balls
+      var tempBall3 = allMyBalls[i];
+      tempBall3.move();
+      tempBall3.display();
+    }
+
+
+    for (var i=0; i<allMyBalls.length; i++) { //va da 0 alla lunghezza delle mie balls
+      var tempBall4 = allMyBalls[i];
+      tempBall4.move();
+      tempBall4.display();
+    }
+
+    for (var i=0; i<allMyBalls.length; i++) { //va da 0 alla lunghezza delle mie balls
+      var tempBall5 = allMyBalls[i];
+      tempBall5.move();
+      tempBall5.display();
+    }
+
+
 
 
 
@@ -138,6 +196,12 @@ text('outmatch all the cars and win', width/2, 80 + 30);
         }
 
 
+        //winnerline
+            myWinnerLine.move();
+            myWinnerLine.display();
+
+            //my car
+                myCar.display();
 
 
 
@@ -154,14 +218,18 @@ function Car(_x, _y, _width, _height){
   this.width = _width;
   this.height= _height;
   this.x = _x;
-  this.y = _y;
+
+
+  
 
 
 
 //display method
   this.display = function() {
-    angleMode(DEGREES);
 
+
+
+    noStroke();
     fill('red');
     rect(this.x, mouseY, this.width,this.height);
     //car roof
@@ -179,19 +247,22 @@ function Car(_x, _y, _width, _height){
 
 
   }
+
+
+
 }
 
 //end of good car
 //-----------------------------------------
 
 //bad car
-function Ball(_x, _y, _width, _height){
+function Ball(_x, _y, _width, _height, _speed){
   //inner properties
   this.width = _width;
   this.height= _height;
   this.x = _x;
   this.y = _y;
-  this.speed = random()*6+3;
+  this.speed = _speed;
   this.stroke = 'aquamarine';
 
   var xIncrease = 1;
@@ -202,14 +273,14 @@ function Ball(_x, _y, _width, _height){
     this.x += -xIncrease*this.speed;
 
     //bad car stops when it touches the good car
-    if((this.x < 280) && ((this.x > 100) && (this.y < mouseY + 70) && (this.y > mouseY - 70)))
+    if((this.x < 280) && ((this.x > 100) && (this.y < mouseY + 90) && (this.y > mouseY - 90)))
     {
     xIncrease = xIncrease * 0;
     this.speed == 0.0;
     }
 
     //gameover
-    if((this.x < 280) && ((this.x > 100) && (this.y < mouseY + 70) && (this.y > mouseY - 70)))
+    if((this.x < 280) && ((this.x > 100) && (this.y < mouseY + 90) && (this.y > mouseY - 90)))
     {
         //background
           fill('red');
@@ -263,7 +334,7 @@ function WinnerLine(_x, _y, _width, _height){
   this.height= _height;
   this.x = _x;
   this.y = _y;
-  this.speed = 3.5;
+  this.speed = 4;
 
 
   var xIncrease = 1;
