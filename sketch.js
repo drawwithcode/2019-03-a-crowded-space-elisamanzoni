@@ -112,11 +112,6 @@ function draw() {
   //grass
   background('green');
 
-  //streetline
-    stroke('white');
-    strokeWeight(5);
-    line(0,windowHeight/2,windowWidth,windowHeight/2);
-
   //street
   push();
     noStroke();
@@ -124,6 +119,11 @@ function draw() {
     rectMode(CENTER)
     rect(windowWidth/2,windowHeight/2,windowWidth,600);
     pop();
+
+    //streetline
+      stroke('white');
+      strokeWeight(5);
+      line(0,windowHeight/2,windowWidth,windowHeight/2);
 
 //instructions text
     fill('white');
