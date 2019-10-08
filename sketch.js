@@ -3,8 +3,8 @@
 var myCar;
 
 //bad cars
-var allMyBalls = [];
-var amountOfBalls = 7;
+var allMyBadCar = [];
+var amountOfBadCar = 7;
 
 //winnerLine
 var myWinnerLine;
@@ -31,88 +31,91 @@ myCar = new Car(100, mouseY, 180,90);
 
 
 //random bad car
-  for(var i=0; i<amountOfBalls; i++){
+  for(var i=0; i<amountOfBadCar; i++){
     //instance
-    var tempBall = new Ball(random()*(13*windowWidth) + windowWidth, (windowHeight/2)-291, 180, 90, 2);
-    allMyBalls.push(tempBall); //si azzerano ogni volta gli imput
+    var tempBadCar = new BadCar(random()*(13*windowWidth) + windowWidth, (windowHeight/2)-291, 180, 90, 2);
+    allMyBadCar.push(tempBadCar); //si azzerano ogni volta gli imput
   }
 
-  //random bad car
-    for(var i=0; i<amountOfBalls; i++){
+  //random bad car 2
+    for(var i=0; i<amountOfBadCar; i++){
       //instance
-      var tempBall2 = new Ball(random()*(13*windowWidth) + windowWidth, (windowHeight/2)-168, 180, 90, 2.5);
-      allMyBalls.push(tempBall2); //si azzerano ogni volta gli imput
+      var tempBadCar2 = new BadCar(random()*(13*windowWidth) + windowWidth, (windowHeight/2)-168, 180, 90, 2.5);
+      allMyBadCar.push(tempBadCar2); //si azzerano ogni volta gli imput
     }
 
-    //random bad car
-      for(var i=0; i<amountOfBalls; i++){
+    //random bad car 3
+      for(var i=0; i<amountOfBadCar; i++){
         //instance
-        var tempBall3 = new Ball(random()*(13*windowWidth) + windowWidth, (windowHeight/2)-45, 180, 90, 2);
-        allMyBalls.push(tempBall3); //si azzerano ogni volta gli imput
+        var tempBadCar3 = new BadCar(random()*(13*windowWidth) + windowWidth, (windowHeight/2)-45, 180, 90, 2);
+        allMyBadCar.push(tempBadCar3); //si azzerano ogni volta gli imput
       }
 
-      //random bad car
-        for(var i=0; i<amountOfBalls; i++){
+      //random bad car 4
+        for(var i=0; i<amountOfBadCar; i++){
           //instance
-          var tempBall4 = new Ball(random()*(13*windowWidth) + windowWidth, (windowHeight/2)+48, 180, 90, 3);
-          allMyBalls.push(tempBall4); //si azzerano ogni volta gli imput
+          var tempBadCar4 = new BadCar(random()*(13*windowWidth) + windowWidth, (windowHeight/2)+48, 180, 90, 3);
+          allMyBadCar.push(tempBadCar4); //si azzerano ogni volta gli imput
         }
 
-        //random bad car
-          for(var i=0; i<amountOfBalls; i++){
+        //random bad car 5
+          for(var i=0; i<amountOfBadCar; i++){
             //instance
-            var tempBall5 = new Ball(random()*(13*windowWidth) + windowWidth, (windowHeight/2)+201, 180, 90, 2);
-            allMyBalls.push(tempBall5); //si azzerano ogni volta gli imput
+            var tempBadCar5 = new BadCar(random()*(13*windowWidth) + windowWidth, (windowHeight/2)+201, 180, 90, 2);
+            allMyBadCar.push(tempBadCar5); //si azzerano ogni volta gli imput
           }
 
+//------------------------------------------------------------------------------------------------
 
   // winnerline
 myWinnerLine = new WinnerLine(5.5*windowWidth, 0, 50,windowHeight);
 
+//------------------------------------------------------------------------------------------------
+
 //random trees
   for(var i=0; i<amountOfTrees; i++){
-    //instance
+    //instance top trees
     var tempTree = new Tree(random()*(8*windowWidth) + 0, random()*((windowHeight/2)-310) + 0, 20,'darkGreen');
     allMyTrees.push(tempTree);
   }
 
   for(var i=0; i<amountOfTrees; i++){
-    //instance
+    //instance top flowers
     var tempTree2 = new Tree(random()*(8*windowWidth) + 0, random()*((windowHeight/2)-310) + 0, 10,'pink');
     allMyTrees.push(tempTree2);
   }
 
   for(var i=0; i<amountOfTrees; i++){
-    //instance
+    //instance bottom trees
     var tempTree3 = new Tree(random()*(8*windowWidth) + 0, windowHeight-30, 20,'darkGreen');
     allMyTrees.push(tempTree3);
   }
 
   for(var i=0; i<amountOfTrees; i++){
-    //instance
+    //instance bottom flowers
     var tempTree4 = new Tree(random()*(8*windowWidth) + 0, windowHeight-15, 10,'pink');
     allMyTrees.push(tempTree4);
   }
 
-
+//------------------------------------------------------------------------------------------------
 
   // put setup code here
 }
+
+
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
 
 function draw() {
 
   //grass
   background('green');
 
-//instruction
-
-
   //streetline
     stroke('white');
     strokeWeight(5);
     line(0,windowHeight/2,windowWidth,windowHeight/2);
-
-
 
   //street
   push();
@@ -122,6 +125,7 @@ function draw() {
     rect(windowWidth/2,windowHeight/2,windowWidth,600);
     pop();
 
+//instructions text
     fill('white');
     noStroke();
     textAlign(CENTER,CENTER);
@@ -130,71 +134,72 @@ function draw() {
 
 
 //---------------------------------------------------
-//display e move bad car
 
+//display e move bad cars
 
-    for (var i=0; i<allMyBalls.length; i++) { //va da 0 alla lunghezza delle mie balls
-      var tempBall = allMyBalls[i];
-      tempBall.move();
-      tempBall.display();
+    for (var i=0; i<allMyBadCar.length; i++) {
+      var tempBadCar = allMyBadCar[i];
+      tempBadCar.move();
+      tempBadCar.display();
     }
 
-    for (var i=0; i<allMyBalls.length; i++) { //va da 0 alla lunghezza delle mie balls
-      var tempBall2 = allMyBalls[i];
-      tempBall2.move();
-      tempBall2.display();
+    for (var i=0; i<allMyBadCar.length; i++) {
+      var tempBadCar2 = allMyBadCar[i];
+      tempBadCar2.move();
+      tempBadCar2.display();
     }
 
-    for (var i=0; i<allMyBalls.length; i++) { //va da 0 alla lunghezza delle mie balls
-      var tempBall3 = allMyBalls[i];
-      tempBall3.move();
-      tempBall3.display();
-    }
-
-
-    for (var i=0; i<allMyBalls.length; i++) { //va da 0 alla lunghezza delle mie balls
-      var tempBall4 = allMyBalls[i];
-      tempBall4.move();
-      tempBall4.display();
-    }
-
-    for (var i=0; i<allMyBalls.length; i++) { //va da 0 alla lunghezza delle mie balls
-      var tempBall5 = allMyBalls[i];
-      tempBall5.move();
-      tempBall5.display();
+    for (var i=0; i<allMyBadCar.length; i++) {
+      var tempBadCar3 = allMyBadCar[i];
+      tempBadCar3.move();
+      tempBadCar3.display();
     }
 
 
+    for (var i=0; i<allMyBadCar.length; i++) {
+      var tempBadCar4 = allMyBadCar[i];
+      tempBadCar4.move();
+      tempBadCar4.display();
+    }
+
+    for (var i=0; i<allMyBadCar.length; i++) {
+      var tempBadCar5 = allMyBadCar[i];
+      tempBadCar5.move();
+      tempBadCar5.display();
+    }
 
 
+
+//------------------------------------------------------------------------------------------------
 
 
   //display e move trees
 
-        for (var i=0; i<allMyTrees.length; i++) { //va da 0 alla lunghezza delle mie balls
+        for (var i=0; i<allMyTrees.length; i++) {
           var tempTree = allMyTrees[i];
           tempTree.move();
           tempTree.display();
         }
 
-        for (var i=0; i<allMyTrees.length; i++) { //va da 0 alla lunghezza delle mie balls
+        for (var i=0; i<allMyTrees.length; i++) {
           var tempTree2 = allMyTrees[i];
           tempTree2.move();
           tempTree2.display();
         }
 
-        for (var i=0; i<allMyTrees.length; i++) { //va da 0 alla lunghezza delle mie balls
+        for (var i=0; i<allMyTrees.length; i++) {
           var tempTree3 = allMyTrees[i];
           tempTree3.move();
           tempTree3.display();
         }
 
-        for (var i=0; i<allMyTrees.length; i++) { //va da 0 alla lunghezza delle mie balls
+        for (var i=0; i<allMyTrees.length; i++) {
           var tempTree4 = allMyTrees[i];
           tempTree4.move();
           tempTree4.display();
         }
 
+//------------------------------------------------------------------------------------------------
 
         //winnerline
             myWinnerLine.move();
@@ -204,12 +209,11 @@ function draw() {
                 myCar.display();
 
 
-
-
-//--------------------
 //end of draw
 }
 
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
 //-----------------------------------------
 
 //good car
@@ -219,16 +223,10 @@ function Car(_x, _y, _width, _height){
   this.height= _height;
   this.x = _x;
 
-
-  
-
-
-
 //display method
   this.display = function() {
 
-
-
+    //body
     noStroke();
     fill('red');
     rect(this.x, mouseY, this.width,this.height);
@@ -245,32 +243,30 @@ function Car(_x, _y, _width, _height){
     rect(this.x+170, mouseY+5, 10,20);
     rect(this.x+170, mouseY+65, 10,20);
 
-
   }
-
-
-
+  //end of good car
 }
 
-//end of good car
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
 //-----------------------------------------
 
-//bad car
-function Ball(_x, _y, _width, _height, _speed){
+//bad cars
+function BadCar(_x, _y, _width, _height, _speed){
   //inner properties
   this.width = _width;
   this.height= _height;
   this.x = _x;
   this.y = _y;
   this.speed = _speed;
-  this.stroke = 'aquamarine';
 
   var xIncrease = 1;
-  var yIncrease = 0;
 
-  //methods
+  //move method
   this.move = function(){
     this.x += -xIncrease*this.speed;
+
+    //------------------------------------------------------------------------------------------------
 
     //bad car stops when it touches the good car
     if((this.x < 280) && ((this.x > 100) && (this.y < mouseY + 90) && (this.y > mouseY - 90)))
@@ -299,7 +295,7 @@ function Ball(_x, _y, _width, _height, _speed){
 
     }
 
-
+    //------------------------------------------------------------------------------------------------
 
 //display method
   this.display = function() {
@@ -309,23 +305,24 @@ function Ball(_x, _y, _width, _height, _speed){
     rect(this.x, this.y, this.width,this.height);
     //car roof
     stroke('darkBlue');
-    rect(this.x+30, this.y+10, 80,70);
+    rect(this.x+70, this.y+10, 80,70);
     //windows
     fill('darkBlue');
-    quad(this.x+110,this.y+10,this.x+110,this.y+80,this.x+130,this.y+75,this.x+130,this.y+15);
-    quad(this.x+20,this.y+12,this.x+20,this.y+77,this.x+30,this.y+80,this.x+30,this.y+10);
+    quad(this.x+70,this.y+10,this.x+50,this.y+15,this.x+50,this.y+75,this.x+70,this.y+80);
+    quad(this.x+150,this.y+10,this.x+160,this.y+12,this.x+160,this.y+78,this.x+150,this.y+80);
     //lights
     fill('yellow');
     noStroke();
-    rect(this.x+170, this.y+5, 10,20);
-    rect(this.x+170, this.y+65, 10,20);
+    rect(this.x+0, this.y+5, 10,20);
+    rect(this.x+0, this.y+65, 10,20);
 
   }
 }
 
 //end of bad car
 //-----------------------------------------
-
+//-----------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
 
 //winnerline
 function WinnerLine(_x, _y, _width, _height){
@@ -340,16 +337,20 @@ function WinnerLine(_x, _y, _width, _height){
   var xIncrease = 1;
   var yIncrease = 0;
 
-  //methods
+  //move method
   this.move = function(){
     this.x += -xIncrease*this.speed;
 
-    //bad car stops when it touches the good car
+//------------------------------------------------------------------------------------------------
+
+    //winner line stops when it touches the good car
     if((this.x < 280) && (this.x > 100))
     {
     xIncrease = xIncrease * 0;
     this.speed == 0.0;
     }
+
+//------------------------------------------------------------------------------------------------
 
     //win
     if((this.x < 280) && (this.x > 100))
@@ -370,7 +371,7 @@ function WinnerLine(_x, _y, _width, _height){
       }
     }
 
-
+//------------------------------------------------------------------------------------------------
 
 //display method
   this.display = function() {
@@ -385,7 +386,8 @@ function WinnerLine(_x, _y, _width, _height){
 
 //end of winnerline
 //-----------------------------------------
-
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
 
 //trees
 function Tree(_x, _y, _diameter, _color){
@@ -399,13 +401,14 @@ function Tree(_x, _y, _diameter, _color){
   var xIncrease = 1;
   var yIncrease = 0;
 
-  //methods
+//------------------------------------------------------------------------------------------------
+  //move methods
   this.move = function(){
     this.x += -xIncrease*this.speed;
 
     }
 
-
+//------------------------------------------------------------------------------------------------
 
 //display method
   this.display = function() {
@@ -419,3 +422,4 @@ function Tree(_x, _y, _diameter, _color){
 
 //end of winnerline
 //-----------------------------------------
+//------------------------------------------------------------------------------------------------
