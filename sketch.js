@@ -133,7 +133,39 @@ function draw() {
     textSize(20);
     text('move the mouse, dodge all the cars and win', width/2, (windowHeight/2)-250);
 
+    //------------------------------------------------------------------------------------------------
 
+    //display e move trees
+
+          for (var i=0; i<allMyTrees.length; i++) {
+            var tempTree = allMyTrees[i];
+            tempTree.move();
+            tempTree.display();
+          }
+
+          for (var i=0; i<allMyTrees.length; i++) {
+            var tempTree2 = allMyTrees[i];
+            tempTree2.move();
+            tempTree2.display();
+          }
+
+          for (var i=0; i<allMyTrees.length; i++) {
+            var tempTree3 = allMyTrees[i];
+            tempTree3.move();
+            tempTree3.display();
+          }
+
+          for (var i=0; i<allMyTrees.length; i++) {
+            var tempTree4 = allMyTrees[i];
+            tempTree4.move();
+            tempTree4.display();
+          }
+
+    //------------------------------------------------------------------------------------------------
+
+    //winnerline
+        myWinnerLine.move();
+        myWinnerLine.display();
 
 //---------------------------------------------------
 
@@ -175,37 +207,9 @@ function draw() {
 //------------------------------------------------------------------------------------------------
 
 
-  //display e move trees
 
-        for (var i=0; i<allMyTrees.length; i++) {
-          var tempTree = allMyTrees[i];
-          tempTree.move();
-          tempTree.display();
-        }
 
-        for (var i=0; i<allMyTrees.length; i++) {
-          var tempTree2 = allMyTrees[i];
-          tempTree2.move();
-          tempTree2.display();
-        }
 
-        for (var i=0; i<allMyTrees.length; i++) {
-          var tempTree3 = allMyTrees[i];
-          tempTree3.move();
-          tempTree3.display();
-        }
-
-        for (var i=0; i<allMyTrees.length; i++) {
-          var tempTree4 = allMyTrees[i];
-          tempTree4.move();
-          tempTree4.display();
-        }
-
-//------------------------------------------------------------------------------------------------
-
-        //winnerline
-            myWinnerLine.move();
-            myWinnerLine.display();
 
             //my car
                 myCar.display();
