@@ -126,17 +126,12 @@ function draw() {
       strokeWeight(5);
       line(0,windowHeight/2,windowWidth,windowHeight/2);
 
-//instructions text
-    fill('white');
-    noStroke();
-    textAlign(CENTER,CENTER);
-    textSize(20);
-    text('move the mouse, dodge all the cars and win', width/2, (windowHeight/2)-250);
 
     //------------------------------------------------------------------------------------------------
 
     //display e move trees
-
+      noStroke();
+      
           for (var i=0; i<allMyTrees.length; i++) {
             var tempTree = allMyTrees[i];
             tempTree.move();
@@ -162,6 +157,12 @@ function draw() {
           }
 
     //------------------------------------------------------------------------------------------------
+    //instructions text
+        fill('white');
+        noStroke();
+        textAlign(CENTER,CENTER);
+        textSize(20);
+        text('move the mouse, dodge all the cars and win', width/2, (windowHeight/2)-250);
 
     //winnerline
         myWinnerLine.move();
