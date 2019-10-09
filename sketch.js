@@ -131,7 +131,8 @@ function draw() {
     noStroke();
     textAlign(CENTER,CENTER);
     textSize(20);
-    text('move the mouse, dodge all the cars and win', width/2, 80 + 30);
+    text('move the mouse, dodge all the cars and win', width/2, (windowHeight/2)-250);
+
 
 
 //---------------------------------------------------
