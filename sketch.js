@@ -29,6 +29,7 @@ function setup() {
 myCar = new Car(100, mouseY, 180,90);
 
 
+//------------------------------------------------------------------------------------------------
 
 //random bad car
   for(var i=0; i<amountOfBadCar; i++){
@@ -229,19 +230,54 @@ function Car(_x, _y, _width, _height){
     //body
     noStroke();
     fill('red');
-    rect(this.x, mouseY, this.width,this.height);
+
+    if (mouseY>(windowHeight/2)-290 && mouseY < (windowHeight/2)+200){
+      rect(this.x, mouseY, this.width,this.height);
+      //car roof
+      stroke('darkRed');
+      rect(this.x+30, mouseY+10, 80,70);
+      //windows
+      fill('darkRed');
+      quad(this.x+110,mouseY+10,this.x+110,mouseY+80,this.x+130,mouseY+75,this.x+130,mouseY+15);
+      quad(this.x+20,mouseY+12,this.x+20,mouseY+77,this.x+30,mouseY+80,this.x+30,mouseY+10);
+      //lights
+      fill('yellow');
+      noStroke();
+      rect(this.x+170, mouseY+5, 10,20);
+      rect(this.x+170, mouseY+65, 10,20);
+    }
+
+    else if (mouseY<(windowHeight/2)-290)
+    {rect(this.x, (windowHeight/2)-290, this.width,this.height);
     //car roof
     stroke('darkRed');
-    rect(this.x+30, mouseY+10, 80,70);
+    rect(this.x+30, (windowHeight/2)-290+10, 80,70);
     //windows
     fill('darkRed');
-    quad(this.x+110,mouseY+10,this.x+110,mouseY+80,this.x+130,mouseY+75,this.x+130,mouseY+15);
-    quad(this.x+20,mouseY+12,this.x+20,mouseY+77,this.x+30,mouseY+80,this.x+30,mouseY+10);
+    quad(this.x+110,(windowHeight/2)-290+10,this.x+110,(windowHeight/2)-290+80,this.x+130,(windowHeight/2)-290+75,this.x+130,(windowHeight/2)-290+15);
+    quad(this.x+20,(windowHeight/2)-290+12,this.x+20,(windowHeight/2)-290+77,this.x+30,(windowHeight/2)-290+80,this.x+30,(windowHeight/2)-290+10);
     //lights
     fill('yellow');
     noStroke();
-    rect(this.x+170, mouseY+5, 10,20);
-    rect(this.x+170, mouseY+65, 10,20);
+    rect(this.x+170, (windowHeight/2)-290+5, 10,20);
+    rect(this.x+170, (windowHeight/2)-290+65, 10,20);
+
+}
+    else if (mouseY > (windowHeight/2)+200)
+    {      rect(this.x, (windowHeight/2)+200, this.width,this.height);
+    //car roof
+    stroke('darkRed');
+    rect(this.x+30, (windowHeight/2)+200+10, 80,70);
+    //windows
+    fill('darkRed');
+    quad(this.x+110,(windowHeight/2)+200+10,this.x+110,(windowHeight/2)+200+80,this.x+130,(windowHeight/2)+200+75,this.x+130,(windowHeight/2)+200+15);
+    quad(this.x+20,(windowHeight/2)+200+12,this.x+20,(windowHeight/2)+200+77,this.x+30,(windowHeight/2)+200+80,this.x+30,(windowHeight/2)+200+10);
+    //lights
+    fill('yellow');
+    noStroke();
+    rect(this.x+170, (windowHeight/2)+200+5, 10,20);
+    rect(this.x+170, (windowHeight/2)+200+65, 10,20);
+  }
 
   }
   //end of good car
